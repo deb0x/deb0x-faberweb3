@@ -81,8 +81,6 @@ $box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
                 left: 50%;
                 transform: translateX(-50%);
                 .img {
-                    // object-fit: cover;
-                    // border-radius: 50%;
                     height: 100%;
                     background-size: contain;
                 }
@@ -173,13 +171,35 @@ $box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
                     }
                     .list-item.Mui-selected {
                         background-color: #cccccc40;
+                        position: relative;
+                        &::before {
+                            content: '';
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            position: absolute;
+                            left: 15px;
+                        }
+                        &:first-child::before {
+                            background-color: #F5B700;
+                        }
+                        &:nth-child(2)::before {
+                            background-color: #91C499;
+                        }
+                        &:nth-child(3)::before {
+                            background-color: #D64933;
+                        }
+                        &:nth-child(4)::before {
+                            background-color: #809BCE;
+                        }
                         .MuiTypography-root {
                             font-weight: 800;
                         }
                     }
                     .icon {
-                        svg {
-                            font-size: 35px;
+                        img {
+                            max-width: 25px;
+                            width: 100%;
                         }
                     }
                     .send-item {
@@ -191,7 +211,7 @@ $box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
                     ul.menu-list {
                         box-shadow: 4px 0px 11px #1A152036;
                         .list-item {
-                            padding: 10px 10px 10px 35px;
+                            padding: 15px 10px 15px 35px;
                             &:nth-child(2) {
                                 color: #91C499;
                                 .icon {

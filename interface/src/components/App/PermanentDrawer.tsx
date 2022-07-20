@@ -8,18 +8,17 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import SendIcon from '@mui/icons-material/Send';
 import add from '../../photos/icons/ios-compose.svg';
 import trophy from '../../photos/icons/trophy.svg';
+import inbox from '../../photos/icons/inbox.svg';
+import send from '../../photos/icons/send.svg';
 import Button from '@mui/material/Button'
 import Popper from '@mui/material/Popper'
 import { injected } from '../../connectors';
 import { Spinner } from './Spinner'
 import { useEagerConnect } from '../../hooks';
 import IconButton from "@mui/material/IconButton";
-import logoDark from "../../photos/logo-dark.svg";
-import logoLight from "../../photos/logo-light.svg";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Deb0xERC20 from "../../ethereum/deb0xerc20"
 import { ethers } from "ethers";
@@ -253,27 +252,28 @@ export function PermanentDrawer(props: any): any {
                 <Drawer variant="permanent"
                     anchor={dimensions.width > 768 ? 'left' : 'bottom'}
                     className="side-menu">
-                    { account  && 
-                        <List >
-                            {menuItems.map((text, index) => (
-                                <>
-                                    
-                                    <ListItem button key={text} 
-                                        selected={selectedIndex === index} 
-                                        onClick={() => handleChange(text, index)}
-                                        className={`list-item ${index === 0 ? "send-item" : ""}` }>
-                                        <ListItemIcon className="icon" >
-                                            {index === 0 && <img src={add} />}
-                                            {index === 1 && <InboxIcon />}
-                                            {index === 2 && <img src={trophy} />}
-                                            {index === 3 && <SendIcon />}
-                                        </ListItemIcon>
-                                        <ListItemText className="text" primary={text} />
-                                    </ListItem>
-                                </>
-                            ))}
-                        </List>
-                    }
+                    <div className="image-container">
+                        <div className="img"></div>
+                    </div>
+                    <List className="menu-list">
+                        {menuItems.map((text, index) => (
+                            <>
+                                
+                                <ListItem button key={text} 
+                                    selected={selectedIndex === index} 
+                                    onClick={() => handleChange(text, index)}
+                                    className={`list-item ${index === 0 ? "send-item" : ""}` }>
+                                    <ListItemIcon className="icon" >
+                                        {index === 0 && <img src={add} />}
+                                        {index === 1 && <img src={inbox} />}
+                                        {index === 2 && <img src={trophy} />}
+                                        {index === 3 && <img src={send} />}
+                                    </ListItemIcon>
+                                    <ListItemText className="text" primary={text} />
+                                </ListItem>
+                            </>
+                        ))}
+                    </List>
                     
                     <div className="side-menu--bottom">
                         <>
